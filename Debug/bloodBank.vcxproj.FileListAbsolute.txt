@@ -1,0 +1,2 @@
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\Debug\bloodBank.exe
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\Debug\bloodBank.pdb

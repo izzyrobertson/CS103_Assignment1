@@ -1,0 +1,8 @@
+﻿  bloodBank.cpp
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(110,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(110,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(112,17): warning C4129: '/': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(112,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(112,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(114,17): warning C4129: '_': unrecognized character escape sequence
+  bloodBank.vcxproj -> C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\Debug\bloodBank.exe
