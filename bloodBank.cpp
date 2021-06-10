@@ -135,6 +135,8 @@ void secondline(int n) { // decalring int n creating a line to underscore the ti
 int menu() { // KB
     int option; // KB
     char x; // KB
+    string Username, Password; // IR
+    int Login_Attempt = 0; //IR
     setcolor(0x07);  // Initial color for program // KB
     while (true) { // KB
         system("CLS"); // KB
@@ -168,63 +170,35 @@ int menu() { // KB
         cout << "\n"; // KB
         cout << "\t\t     3. REGISTER\n"; // KB
         cout << "\n"; // KB
-        cout << "\t\t     4. ADMIN LOGIN \n"; 
+        cout << "\t\t     4. ADMIN LOGIN \n";
         cout << "\n"; // KB
-        cout << "\t\t     5. EXIT \n"; 
-        cout << "\n"; 
-        cout << "\n"; 
-        cout << "\t\t  Enter your option : "; 
-      
-        
+        cout << "\t\t     5. EXIT \n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\t\t  Enter your option : ";
+
+
         cin >> option; // KB
-        
+
         system("CLS"); // KB
-        
-    
+
+
         switch (option) // KB
-        { 
-             
+        {
+
         case 1: { // KB
-            cout << "\n"; 
-            cout << "\n\t\t       ABOUT\n"; 
-            cout << "\n"; 
-            cout << "\n\t\t Whats in your blood?"; 
-            cout << "\n"; 
+            cout << "\n";
+            cout << "\n\t\t       ABOUT\n";
+            cout << "\n";
+            cout << "\n\t\t Whats in your blood?";
+            cout << "\n";
             cout << "\n   Blood is made up of four main components : red blood\n   cells, white blood cells, plateletsand, the protein\n   : rich liquid that suspends them all, plasma."; // KB
-            cout << "\n"; 
+            cout << "\n";
             cout << "\n   It's rare for a patient to require all of the blood \n   components at one time, so a blood donation is usually\n   separated into three parts for transfusion : red blood \n   cells, platelets and plasma. This means patients can be\n   transfused with only what they need, and your single\n   blooddonation can help save more than one patient."; // KB
-            cout << "\n"; 
+            cout << "\n";
             cout << "\n   Because there's no substitute for these lifesaving \n   components, patients around the country rely on blood\n   donors to help save their lives."; // KB
-            cout << "\n"; 
-            cout << "\n"; 
-            setcolor(0x0C); 
-            cout << "\t\t     b. BACK\n"; 
-            setcolor(0x07); 
-            cout << "\n"; 
-            cout << "\t\tEnter your option : ";  
-            cin >> x ; 
-            if (x == 'b'){ 
-                menu(); // re-calls menu function // KB
-            } 
-            else { 
-                while (x != 'b') { // while x doesnt equal the character b it will loop // KB
-                    cout << "\n";
-                    cout << "\t      Invalid input try again"; 
-                    cout << "\n";
-                    cin >> x; 
-                } 
-            } 
-            break;
-        } // KB
-
-
-
-        case 2: { // KB
-            
-            cout << "\n\t\t      LOGIN\n";
             cout << "\n";
             cout << "\n";
-
             setcolor(0x0C);
             cout << "\t\t     b. BACK\n";
             setcolor(0x07);
@@ -232,23 +206,109 @@ int menu() { // KB
             cout << "\t\tEnter your option : ";
             cin >> x;
             if (x == 'b') {
-                menu();
+                menu(); // re-calls menu function // KB
             }
-            else { 
-                while (x != 'a' && x != 'b') {
+            else {
+                while (x != 'b') { // while x doesnt equal the character b it will loop // KB
                     cout << "\n";
-                    cout << "\t      Invalid input try again"; 
+                    cout << "\t      Invalid input try again";
                     cout << "\n";
                     cin >> x;
-             
-                } 
-            } 
-            break; 
+                }
+            }
+            break;
+        } // KB
+
+
+
+        case 2: { // KB
+
+            cout << "\nLOGIN"; // KB
+            cout << "\t\ta. Login" << endl; // IR
+            cout << "\t\tb. BACK\n"; // KB
+            cout << "\n"; // KB
+            cout << "\t\t Enter your option : "; // KB
+            cout << "\n"; // KB
+            cin >> x; // KB
+
+            struct Donor u;
+            struct Donor* ptr = &u;
+
+            if (x == 'a') { // IR
+                ifstream myfile("emp.csv", ios::in); // IR
+                myfile.open("emp.csv");
+                myfile >> (ptr)->username;
+                cout << "\nPlease Enter your Username and Password" << endl; // IR
+                cout << "---------------------------------------" << endl; // IR
+                cout << (ptr)->username << endl;
+                cout << "Username : "; // IR
+                cin >> Username; // IR
+                cout << "Password : "; // IR
+                cin >> Password; // IR
+                if (Username == "(getline(myfile, u->username[1][12]))" && Password == "(getline(myfile, u->password[1][13]))") { // IR
+                    system("CLS"); // IR
+                    cout << "\nDONOR SCREEN" << endl; // IR
+                } // IR
+                if (Username != "(getline(myfile, ptr->username[1][12]))" || Password != "(getline(myfile, ptr->password[1][13]))") { // IR
+                    while (Login_Attempt < 3) { // IR
+                        Login_Attempt++; // IR
+                        cout << "Incorrect Username or Password, Please Try Again" << endl; // IR
+                        cout << "\nUsername :"; // IR
+                        cin >> Username; // IR
+                        cout << "Password : "; // IR
+                        cin >> Password; // IR
+                    } // IR
+                    while (Login_Attempt == 3) { // IR
+                        cout << "Sorry, you have entered the incorrect Username or Password more than 3 times" << endl; // IR
+                        cout << "============================================================================" << endl; // IR
+                        cout << "\nPlease press b to return to menu : "; // IR
+                        cin >> x; // IR
+                        if (x == 'b') { // IR
+                            menu(); // IR
+                        } // IR
+                        else { // IR
+                            if (x != 'b') {
+                                cout << "\nInvalid input try again"; // KB // IR
+                                cout << "\n"; // IR
+                                cin >> x; // IR
+                            }
+                        } // IR
+                    } // IR
+                    myfile.close(); // IR
+                } // IR
+                break; // IR
+            } // IR
+        } // IR
+
+              cout << "\n\t\t      LOGIN\n";
+              cout << "\n";
+              cout << "\n";
+
+              setcolor(0x0C);
+              cout << "\t\t     b. BACK\n";
+              setcolor(0x07);
+              cout << "\n";
+              cout << "\t\tEnter your option : ";
+              cin >> x;
+              if (x == 'b') {
+                  menu();
+              } //if
+              else {
+                  while (x != 'a' && x != 'b') {
+                      cout << "\n";
+                      cout << "\t      Invalid input try again";
+                      cout << "\n";
+                      cin >> x;
+
+                  }//else
+              }
+              break;
         } //KB
-              
 
 
 
+
+        //KB
         case 3: { // KB
 
             cout << "\n\t\t     REGISTER\n"; // KB
@@ -273,7 +333,7 @@ int menu() { // KB
                 cout << "\n";
                 cin >> x;
             }
-         
+
 
             if (x == 'a') { // KB
                 struct Donor u;
@@ -299,19 +359,19 @@ int menu() { // KB
                 cin >> x;
             }
 
-            else if (x =='c') {
+            else if (x == 'c') {
                 menu();
-        
-            }
-            
-           
-            
-                break; // KB
-            } // KB
 
-     
-     
-            
+            }
+
+
+
+            break; // KB
+        } // KB
+
+
+
+
 
 
         case 4: { // KB
@@ -337,12 +397,12 @@ int menu() { // KB
                     cout << "\t      Invalid input try again"; // KB
                     cout << "\n";
                     cin >> x;
-               
+
                 } // KB
             } // KB
             break; // KB
         } // KB
-                
+
 
         case 5: { // KB
             cout << "\n"; // KB
@@ -355,13 +415,13 @@ int menu() { // KB
             cout << "\n"; // KB
             cout << "\n"; // KB
             return 0; // KB
-        } // KB
+        } // KB //case5
 
 
 
-           
 
-      
+
+  
         } // KB
        
     } // KB
@@ -375,4 +435,5 @@ int main() // KB
     menu(); // KB
     return 0;
      
+    //Izzy's comment
 } // KB
