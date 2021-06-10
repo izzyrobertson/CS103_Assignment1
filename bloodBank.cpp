@@ -33,44 +33,83 @@ struct Donor { // KB
 }; // KB
 
 struct Donor* input_data(struct Donor* u) { // KB
-    ofstream myfile("emp.csv", ios::out); //KB
+    ofstream myfile("donor.csv", ios::app); //KB
     //for (int i = 0; i < n; i++) {  // KB
         cin.ignore(); // KB
-        cout << "\nPlease enter your first name : "; // KB
+        cout << "\n   Please enter your first name : "; // KB
         getline(cin, (u)->first_name); // KB
         /*cout << (u)->first_name;*/
-        cout << "\nPlease enter your last name : "; // KB
+        cout << "\n   Please enter your last name : "; // KB
         getline(cin, (u)->last_name);  // KB
-        cout << "\nPlease enter your date of birth (xx/xx/xx) : "; // KB
+        cout << "\n   Please enter your date of birth (xx/xx/xx) : "; // KB
         getline(cin, (u)->dob); // KB
-        cout << "\nPlease enter your nationality : "; // KB
+        cout << "\n   Please enter your nationality : "; // KB
         getline(cin, (u)->nationality); // KB
-        cout << "\nPlease enter your ethnicity : "; // KB
+        cout << "\n   Please enter your ethnicity : "; // KB
         getline(cin, (u)->ethnicity); // KB
-        cout << "\nPlease enter your biological gender (male / female) : "; // KB
+        cout << "\n   Please enter your biological gender (male / female) : "; // KB
         getline(cin, (u)->gender); // KB
-        cout << "\nPlease enter (if any) underlying conditions : "; // KB
+        cout << "\n   Please enter (if any) underlying conditions : "; // KB
         getline(cin, (u)->underlying_conditions); // KB
-        cout << "\nPlease enter your blood group : "; // KB
+        cout << "\n   Please enter your blood group : "; // KB
         getline(cin, (u)->blood_group); // KB
-        cout << "\nPlease enter your contact number : "; // KB
+        cout << "\n   Please enter your contact number : "; // KB
         cin >> (u)->contact_no; // KB
         cin.ignore(); // KB
-        cout << "\nPlease enter your email : "; // KB
+        cout << "\n   Please enter your email : "; // KB
         getline(cin, (u)->email); // KB
-        cout << "\nPlease enter your physical address : "; // KB
+        cout << "\n   Please enter your physical address : "; // KB
         getline(cin, (u)->physical_address); // KB
-        cout << "\nPlease enter your username : "; // KB
+        cout << "\n   Please enter your username : "; // KB
         getline(cin, (u)->username); // KB
-        cout << "\nPlease enter your password : "; // KB
+        cout << "\n   Please enter your password : "; // KB
         getline(cin, (u)->password); // KB
         myfile << (u)->first_name << ',' << (u)->last_name << ',' << (u)->dob << ',' << (u)->nationality << ',' << (u)->ethnicity << ',' << (u)->gender << ',' << (u)->underlying_conditions << ',' << (u)->blood_group << ',' << (u)->contact_no << ',' << (u)->email << ',' << (u)->physical_address << ',' << (u)->username << ',' << (u)->password << ',' << endl;
+        myfile.close();
 
-        
 
-  
-    myfile.close();
     return(u); // KB
+
+} // KB
+
+struct Recipient { // KB
+    string hospital_name; // KB
+    string blood_bank_name; // KB
+    string patient_name; // KB  
+    int contact_no; // KB
+    string email; // KB
+    string physical_address; // KB
+    string username; // KB
+    string password;  // KB
+    
+}; // KB
+
+struct Recipient* input_data(struct Recipient* s) { // KB
+    ofstream myfile("recipient.csv", ios::app); //KB
+    //for (int i = 0; i < n; i++) {  // KB
+    cin.ignore(); // KB
+    cout << "\n   Please enter the hospital name : "; // KB
+    getline(cin, (s)->hospital_name); // KB
+    cout << "\n   Please enter the blood bank name\n   (put n/a if you do not have one) : "; // KB
+    getline(cin, (s)->blood_bank_name);  // KB
+    cout << "\n   Please enter your patients name\n   (put n/a if you do not have one) : "; // KB
+    getline(cin, (s)->patient_name); // KB
+    cout << "\n   Please enter your contact number : ";
+    cin >> (s)->contact_no; // KB
+    cin.ignore(); // KB
+    cout << "\n   Please enter your email : "; // KB
+    getline(cin, (s)->email); // KB
+    cout << "\n   Please enter your physical address : "; // KB
+    getline(cin, (s)->physical_address); // KB
+    cout << "\n   Please enter your username : "; // KB
+    getline(cin, (s)->username); // KB
+    cout << "\n   Please enter your password : "; // KB
+    getline(cin, (s)->password); // KB
+    myfile << (s)->hospital_name << ',' << (s)->blood_bank_name << ',' << (s)->patient_name << ',' << (s)->contact_no << ',' << (s)->email << ',' << (s)->physical_address << ',' << (s)->username << ',' << (s)->password << ',' << endl;
+    myfile.close();
+    
+
+    return(s); // KB
 
 } // KB
 
@@ -131,57 +170,59 @@ int menu() { // KB
         cout << "\n"; // KB
         cout << "\t\t     3. REGISTER\n"; // KB
         cout << "\n"; // KB
-        cout << "\t\t     4. ADMIN LOGIN \n"; // KB
+        cout << "\t\t     4. ADMIN LOGIN \n";
         cout << "\n"; // KB
-        cout << "\t\t     5. EXIT \n"; // KB
-        cout << "\n"; // KB
-        cout << "\n"; // KB
-        cout << "\t\t  Enter your option : "; // KB
-      
-        
+        cout << "\t\t     5. EXIT \n";
+        cout << "\n";
+        cout << "\n";
+        cout << "\t\t  Enter your option : ";
+
+
         cin >> option; // KB
-        
+
         system("CLS"); // KB
-         
+
+
         switch (option) // KB
-        { // KB
-             
+        {
+
         case 1: { // KB
-            cout << "\n"; // KB
-            cout << "\n\t\t       ABOUT\n"; // KB
-            cout << "\n"; // KB
-            cout << "\n\t\t Whats in your blood?"; // KB
-            cout << "\n"; // KB
+            cout << "\n";
+            cout << "\n\t\t       ABOUT\n";
+            cout << "\n";
+            cout << "\n\t\t Whats in your blood?";
+            cout << "\n";
             cout << "\n   Blood is made up of four main components : red blood\n   cells, white blood cells, plateletsand, the protein\n   : rich liquid that suspends them all, plasma."; // KB
-            cout << "\n"; // KB
+            cout << "\n";
             cout << "\n   It's rare for a patient to require all of the blood \n   components at one time, so a blood donation is usually\n   separated into three parts for transfusion : red blood \n   cells, platelets and plasma. This means patients can be\n   transfused with only what they need, and your single\n   blooddonation can help save more than one patient."; // KB
-            cout << "\n"; // KB
+            cout << "\n";
             cout << "\n   Because there's no substitute for these lifesaving \n   components, patients around the country rely on blood\n   donors to help save their lives."; // KB
-            cout << "\n"; // KB
-            cout << "\n"; // KB
-            setcolor(0x0C); // KB
-            cout << "\t\t     b. BACK\n"; // KB
-            setcolor(0x07); // KB
-            cout << "\n"; // KB
-            cout << "\t\tEnter your option : ";  // KB
-            cin >> x ; // KB
-            if (x == 'b'){ // KB
+            cout << "\n";
+            cout << "\n";
+            setcolor(0x0C);
+            cout << "\t\t     b. BACK\n";
+            setcolor(0x07);
+            cout << "\n";
+            cout << "\t\tEnter your option : ";
+            cin >> x;
+            if (x == 'b') {
                 menu(); // re-calls menu function // KB
-            } // KB
-            else { // KB
+            }
+            else {
                 while (x != 'b') { // while x doesnt equal the character b it will loop // KB
-                    cout << "\nInvalid input try again"; // KB
-                    cout << "\n"; // KB
-                    cin >> x; // KB
-                } // KB
-            } // KB
-            break; // KB
+                    cout << "\n";
+                    cout << "\t      Invalid input try again";
+                    cout << "\n";
+                    cin >> x;
+                }
+            }
+            break;
         } // KB
 
 
 
         case 2: { // KB
-            
+
             cout << "\nLOGIN"; // KB
             cout << "\t\ta. Login" << endl; // IR
             cout << "\t\tb. BACK\n"; // KB
@@ -238,83 +279,149 @@ int menu() { // KB
                 break; // IR
             } // IR
         } // IR
-              
+
+              cout << "\n\t\t      LOGIN\n";
+              cout << "\n";
+              cout << "\n";
+
+              setcolor(0x0C);
+              cout << "\t\t     b. BACK\n";
+              setcolor(0x07);
+              cout << "\n";
+              cout << "\t\tEnter your option : ";
+              cin >> x;
+              if (x == 'b') {
+                  menu();
+              } //if
+              else {
+                  while (x != 'a' && x != 'b') {
+                      cout << "\n";
+                      cout << "\t      Invalid input try again";
+                      cout << "\n";
+                      cin >> x;
+
+                  }//else
+              }
+              break;
+        } //KB
 
 
 
+
+        //KB
         case 3: { // KB
 
-            cout << "REGISTER"; // KB
+            cout << "\n\t\t     REGISTER\n"; // KB
             cout << "\n"; // KB
-            cout << "\t\t A. Register as a Donor : "; // KB
             cout << "\n"; // KB
-            cout << "\t\tB. BACK\n"; // KB
+            cout << "\t       a. REGISTER AS A DONOR\n"; // KB          
             cout << "\n"; // KB
-            cout << "\t\t Enter your option : "; // KB
             cout << "\n"; // KB
+            cout << "\t     b. REGISTER AS A RECIPIENT\n"; // KB
+            setcolor(0x0C); // KB
+            cout << "\n"; // KB
+            cout << "\n"; // KB
+            cout << "\t\t     c. BACK\n"; // KB
+            setcolor(0x07); // KB
+            cout << "\n"; // KB
+            cout << "\t\tEnter your option : ";  // KB
             cin >> x; // KB
-            
-            if (x == 'a') { // KB
-                struct Donor u; 
-                struct Donor* ptr =&u;
-                input_data(ptr);
-                cout << " Registration complete return to main menu (b)"; 
-                cin >> x;
-                if (x == 'b') {
-                    menu(); // re-calls menu function // KB
-                } // KB
-                else { // KB
-                    while (x != 'b') { // while x doesnt equal the character b it will loop // KB
-                        cout << "\nInvalid input try again"; // KB
-                        cout << "\n"; 
-                        cin >> x;
-                    }
-                } // KB
-                break; // KB
-            } // KB
 
-     
+            while (x != 'a' && x != 'b' && x != 'c') {
+                cout << "\n";
+                cout << "\t      Invalid input try again"; // KB
+                cout << "\n";
+                cin >> x;
+            }
+
+
+            if (x == 'a') { // KB
+                struct Donor u;
+                struct Donor* ptr = &u;
+                input_data(ptr);
+                cout << "\n";
+                cout << "\n";
+                setcolor(0x0C);
+                cout << " Donor registration complete return to main menu (c) : ";
+                setcolor(0x07);
+                cin >> x;
+            }
+
+            else if (x == 'b') {
+                struct Recipient s;
+                struct Recipient* ptr = &s;
+                input_data(ptr);
+                cout << "\n";
+                cout << "\n";
+                setcolor(0x0C);
+                cout << " Recipient registration complete return to main menu (c) : ";
+                setcolor(0x07);
+                cin >> x;
+            }
+
+            else if (x == 'c') {
+                menu();
+
+            }
+
+
+
+            break; // KB
         } // KB
-            
+
+
+
+
 
 
         case 4: { // KB
 
 
-            cout << "ADMIN LOGIN"; // KB
-            cout << "\t\tb. BACK\n"; // KB
+            cout << "\n\t\t   ADMIN LOGIN\n"; // KB
             cout << "\n"; // KB
-            cout << "\t\t Enter your option : "; // KB
             cout << "\n"; // KB
+            cout << "\t\t    a. LOGIN\n"; // KB
+            cout << "\n"; // KB
+            setcolor(0x0C); // KB
+            cout << "\t\t     b. BACK\n"; // KB
+            setcolor(0x07); // KB
+            cout << "\n"; // KB
+            cout << "\t\tEnter your option : ";  // KB
             cin >> x; // KB
             if (x == 'b') { // KB
                 menu(); // re-calls menu function // KB
             } // KB
             else { // KB
-                while (x != 'b') { // while x doesnt equal the character b it will loop // KB
-                    cout << "\nInvalid input try again"; // KB
-                    cout << "\n"; // KB
-                    cin >> x; // KB
+                while (x != 'a' && x != 'b') {
+                    cout << "\n";
+                    cout << "\t      Invalid input try again"; // KB
+                    cout << "\n";
+                    cin >> x;
+
                 } // KB
             } // KB
             break; // KB
         } // KB
-                
+
 
         case 5: { // KB
-
-
-            cout << "GOODBYE"; // KB
             cout << "\n"; // KB
-            system("PAUSE"); // KB
+            cout << "\n"; // KB
+            setcolor(0x0C); // KB
+            cout << "\n\t\t   GOODBYE"; // KB
+            setcolor(0x07); // KB
+            cout << "\n"; // KB
+            cout << "\n"; // KB
+            cout << "\n"; // KB
+            cout << "\n"; // KB
             return 0; // KB
-        } // KB
+        } // KB //case5
 
 
 
-           
 
-      
+
+  
         } // KB
        
     } // KB
