@@ -96,6 +96,8 @@ void secondline(int n) { // decalring int n creating a line to underscore the ti
 int menu() { // KB
     int option; // KB
     char x; // KB
+    string Username, Password; // IR
+    int Login_Attempt = 0; //IR
     setcolor(0x07);  // Initial color for program // KB
     while (true) { // KB
         system("CLS"); // KB
@@ -181,23 +183,61 @@ int menu() { // KB
         case 2: { // KB
             
             cout << "\nLOGIN"; // KB
+            cout << "\t\ta. Login" << endl; // IR
             cout << "\t\tb. BACK\n"; // KB
             cout << "\n"; // KB
             cout << "\t\t Enter your option : "; // KB
             cout << "\n"; // KB
             cin >> x; // KB
-            if (x == 'b') { // KB
-                menu(); // re-calls menu function // KB
-            } // KB
-            else { // KB
-                while (x != 'b') { // while x doesnt equal the character b it will loop // KB
-                    cout << "\nInvalid input try again"; // KB
-                    cout << "\n"; // KB
-                    cin >> x; // KB
-                } // KB
-            } // KB
-            break; // KB
-        } // KB
+
+            struct Donor u;
+            struct Donor* ptr = &u;
+
+            if (x == 'a') { // IR
+                ifstream myfile("emp.csv", ios::in); // IR
+                myfile.open("emp.csv");
+                myfile >> (ptr)->username;
+                cout << "\nPlease Enter your Username and Password" << endl; // IR
+                cout << "---------------------------------------" << endl; // IR
+                cout << (ptr)->username << endl;
+                cout << "Username : "; // IR
+                cin >> Username; // IR
+                cout << "Password : "; // IR
+                cin >> Password; // IR
+                if (Username == "(getline(myfile, u->username[1][12]))" && Password == "(getline(myfile, u->password[1][13]))") { // IR
+                    system("CLS"); // IR
+                    cout << "\nDONOR SCREEN" << endl; // IR
+                } // IR
+                if (Username != "(getline(myfile, ptr->username[1][12]))" || Password != "(getline(myfile, ptr->password[1][13]))") { // IR
+                    while (Login_Attempt < 3) { // IR
+                        Login_Attempt++; // IR
+                        cout << "Incorrect Username or Password, Please Try Again" << endl; // IR
+                        cout << "\nUsername :"; // IR
+                        cin >> Username; // IR
+                        cout << "Password : "; // IR
+                        cin >> Password; // IR
+                    } // IR
+                    while (Login_Attempt == 3) { // IR
+                        cout << "Sorry, you have entered the incorrect Username or Password more than 3 times" << endl; // IR
+                        cout << "============================================================================" << endl; // IR
+                        cout << "\nPlease press b to return to menu : "; // IR
+                        cin >> x; // IR
+                        if (x == 'b') { // IR
+                            menu(); // IR
+                        } // IR
+                        else { // IR
+                            if (x != 'b') {
+                                cout << "\nInvalid input try again"; // KB // IR
+                                cout << "\n"; // IR
+                                cin >> x; // IR
+                            }
+                        } // IR
+                    } // IR
+                    myfile.close(); // IR
+                } // IR
+                break; // IR
+            } // IR
+        } // IR
               
 
 
@@ -288,4 +328,5 @@ int main() // KB
     menu(); // KB
     return 0;
      
+    //Izzy's comment
 } // KB
