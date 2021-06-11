@@ -1,9 +1,9 @@
 ﻿  bloodBank.cpp
-C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(152,17): warning C4129: '|': unrecognized character escape sequence
-C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(152,17): warning C4129: ' ': unrecognized character escape sequence
-C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(154,17): warning C4129: '/': unrecognized character escape sequence
-C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(154,17): warning C4129: ' ': unrecognized character escape sequence
-C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(154,17): warning C4129: '|': unrecognized character escape sequence
-C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(156,17): warning C4129: '_': unrecognized character escape sequence
-C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(237,17): warning C4101: 'i': unreferenced local variable
+C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(166,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(166,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(168,17): warning C4129: '/': unrecognized character escape sequence
+C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(168,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(168,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(170,17): warning C4129: '_': unrecognized character escape sequence
+C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\bloodBank.cpp(258,17): warning C4101: 'i': unreferenced local variable
   bloodBank.vcxproj -> C:\Users\270112252\OneDrive - UP Education\CS103_Assignment1\Debug\bloodBank.exe

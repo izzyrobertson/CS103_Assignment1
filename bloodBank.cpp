@@ -131,6 +131,20 @@ void secondline(int n) { // decalring int n creating a line to underscore the ti
     } // KB
 } // KB
 
+void donor_screen() {
+    int x;
+    cout << "\n\t\tDONOR SCREEN : ";
+    cout << "\t\t     a. CONTACT DETAILS/UPDATE\n";
+    cout << "\n"; 
+    cout << "\t\t     b. BOOK A DONATION\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\t\t  Enter your option : ";
+    cin >> x;
+
+    
+}
+
 
 
 int menu() { // KB
@@ -225,25 +239,33 @@ int menu() { // KB
         case 2: { // KB
 
             cout << "\n\t\t      LOGIN\n\n"; // KB
-            cout << "\t\ta. DONOR LOGIN\n\n"; // IR
+            cout << "\t\ta. DONOR LOGIN\n\n";
+            cout << "\t\tb. RECIPIENT LOGIN\n\n";// IR
             setcolor(0x0C);
             cout << "\t\tb. BACK\n\n"; // KB
+            setcolor(0x07);
             cout << "\t\tEnter your option : ";
             cin >> x; // KB
 
-            struct Donor u;
-            struct Donor* ptr = &u;
-            Donor *d=&u;
+            struct Donor u; //DONOR
+            struct Donor* ptr = &u; //DONOR
+            Donor *d=&u; //DONOR
+
+            //struct Recipient s; //RECIPIENT
+            //struct Recipient* ptr = &s; //RECIPIENT
+            //Recipient *r=&s; //RECIPIENT
+
             int i;
             int Login_Attempt = 0;
 
             if (x == 'a') { // IR
                 ifstream myfile;
                 myfile.open("donor.csv", ios::in); // IR
+                //myfile.open("recipient.csv", ios::in);
                
                 string line;
 
-                while (getline(myfile, line)) {
+                while (getline(myfile, line)) { //DONOR
                     //cout << line;
                     istringstream linestream(line);
                     string item;
@@ -274,11 +296,37 @@ int menu() { // KB
                     d->username = item;
                     getline(linestream, item, ',');
                     d->password = item;
-                };             
+                };
+
+                /*while (getline(myfile, vine)) { //RECIPIENT
+                    //cout << line;
+                    istringstream linestream(vine);
+                    string box;
+                    getline(linestream, box, ',');
+                    r->hospital_name= box;
+                    getline(linestream, box, ',');
+                    r->blood_bank_name = box;
+                    getline(linestream, box, ',');
+                    r->patient_name = box;
+                    getline(linestream, box, ',');
+                    stringstream ss(box);
+                    ss >> r->contact_no;
+                    getline(linestream, box, ',');
+                    r->email = box;
+                    getline(linestream, box, ',');
+                    r->physical_address = box;
+                    getline(linestream, box, ',');
+                    r->username = box;
+                    getline(linestream, box, ',');
+                    r->password = box;
+                }; */
              
                     cout << d->username << endl;
                     cout << d->password << endl;
-               // }
+
+                    //cout << r->username << endl;
+                    //cout << r->password << endl;
+              
              cout << "\n\t\tEnter your Username : ";
              cin >> user_name;
              cout << "\n\t\tEnter your Password : ";
@@ -286,11 +334,8 @@ int menu() { // KB
 
              if (user_name == d->username && user_password == d->password) {
                  system("CLS");
-                 cout << "\n\t\tDONOR SCREEN" << endl;
-                 cin >> x;
              }
-             Login_Attempt = 0;
-             if (user_name != d->username || user_password != d->password) {
+             else if (user_name != d->username || user_password != d->password) {
                  while (Login_Attempt < 2) {
                      Login_Attempt++;
                      cout << "\n\t\tSorry, you have entered the incorrect Username or Password, Please try again!\n";
@@ -298,24 +343,33 @@ int menu() { // KB
                      cin >> user_name;
                      cout << "\n\t\tPassword : ";
                      cin >> user_password;
+                     if (user_name == d->username && user_password == d->password) {
+                         system("CLS");
+                         donor_screen();
+                     }
                  }
-                 while (Login_Attempt == 2) {
+                 while (Login_Attempt >= 2) {
                      cout << "\n\t\tSorry, you have entered the incorrect password 3 times";
                      cout << "\n\t\t======================================================\n";
                      cout << "\n\t\tPlease press b to return to the menu : ";
                      cin >> x;
                      if (x == 'b') {
                          menu();
-                     }
-                     else if (x !='b') {
-                         cout << "\n\t\tInvalid input, Please try again!";
-                         cout << "\n\t\tPlease press b to return to the menu : ";
-                         cin >> x;
+                         while (x != 'b') {
+                             cout << "\n\t\tInvalid input, Please try again!";
+                             cout << "\n\t\tPlease press b to return to the menu : ";
+                             cin >> x;
+                         }
                      }
                  }
              } 
 
             } // case close IR
+            //break;
+            if (x == 'b') {
+                cout << "penis";
+                cin >> x;
+            }
             break;
         }
 
