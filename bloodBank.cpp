@@ -1,15 +1,103 @@
 // bloodBank.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-#ifndef NOMINMAX // KB
-#define NOMINMAX // KB
-#endif // KB
-#include <iostream> // KB
-#include <windows.h> // KB
-#include<stdlib.h> // KB
-#include <string> //KB
-#include <fstream> //KB
+#include "bloodBank.h"
 
-using namespace std; // KB
+void setcolor(unsigned char color) // KB
+{ // KB
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); // KB
+} // KB
+
+
+
+struct Date {
+    string monday, tuesday, wednesday, thursday, friday;
+};
+
+struct Date* input_data(struct Date* b) {
+    ofstream myfile;
+    myfile.open("booking.csv", ios::app);
+
+    system("CLS");
+    cout << "\n";
+    cout << "\n\t   Choose the Day for Appointment\n";
+    cout << "\n\t   ------------------------------\n\n";
+    cout << "\n";
+
+    cout << "\n\t   1. Monday 12:00am - 2:00pm \n";
+    cout << "\n\t   2. Tuesday 12:00am - 2:00pm \n";
+    cout << "\n\t   3. Wednesday 12:00am - 2:00pm \n";
+    cout << "\n\t   4. Thursday 12:00am - 2:00pm \n";
+    cout << "\n\t   5. Friday 12:00am - 2:00pm \n";
+    cout << "\n";
+    setcolor(0x0C);
+    cout << "\n\t           6. back\n";
+    setcolor(0x07);
+    int choice;
+
+    cout << "\n\n\t  Select your option : (1-5) ";
+    cin >> choice;
+   
+
+    switch (choice)
+    {
+    case 1: { 
+        setcolor(0x0A);
+        cout << "\n\n\t  Monday booking confirmed\n\n";
+        setcolor(0x07);
+        string mes = "Monday 12:00am - 2 : 00pm"; //phase 2 line would read if file already has booking cout<<"Booking already taken" if free it will write to file.
+        myfile << mes << endl;
+        cout << "\t";
+        system("PAUSE");
+        break;
+    }
+    case 2: {
+        setcolor(0x0A);
+        cout << "\n\n\t  Tuesday booking confirmed\n\n";
+        setcolor(0x07);
+        string mes = "Tuesday 12:00am - 2 : 00pm";
+        myfile << mes << endl;
+        cout << "\t";
+        system("PAUSE");
+        break;
+    }
+    case 3: {
+        setcolor(0x0A);
+        cout << "\n\n\t  Wednesday booking confirmed\n\n";
+        setcolor(0x07);
+        string mes = "Wednesday 12:00am - 2 : 00pm";
+        myfile << mes << endl;
+        cout << "\t";
+        system("PAUSE");
+        break;
+    }
+    case 4: {
+        setcolor(0x0A);
+        cout << "\n\n\t  Thursday booking confirmed\n\n";
+        setcolor(0x07);
+        string mes = "Thursday 12:00am - 2 : 00pm";
+        myfile << mes << endl;
+        cout << "\t";
+        system("PAUSE");
+        break;
+    }
+    case 5: {
+        setcolor(0x0A);
+        cout << "\n\n\t  Friday booking confirmed\n\n";
+        setcolor(0x07);
+        string mes = "Friday 12:00am - 2 : 00pm";
+        myfile << mes << endl;
+        cout << "\t";
+        system("PAUSE");
+        break;
+    }
+    case 6: {
+        /*void donor_screen()*/
+    }
+          // myfile << (b)->monday << ',' << (b)->tuesday << ',' << (b)->wednesday << ',' << (b)->thursday << ',' << (b)->friday << endl;
+          myfile.close();
+    }
+    return(b);
+}
 
 struct Donor { // KB
     string first_name; // KB
@@ -113,10 +201,7 @@ struct Recipient* input_data(struct Recipient* s) { // KB
 
 } // KB
 
-void setcolor(unsigned char color) // KB
-{ // KB
-    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); // KB
-} // KB
+
 
 void line(int n) { // decalring int n creating a line to underscore the title. // KB
     for (int i = 0; i < n; i++) { //i <66 // KB
@@ -132,7 +217,12 @@ void secondline(int n) { // decalring int n creating a line to underscore the ti
 
 
 
-int menu() { // KB
+
+
+
+
+
+int main_screen() { // KB
     int option; // KB
     char x; // KB
     setcolor(0x07);  // Initial color for program // KB
@@ -204,7 +294,7 @@ int menu() { // KB
             cout << "\t\tEnter your option : ";  
             cin >> x ; 
             if (x == 'b'){ 
-                menu(); // re-calls menu function // KB
+                main_screen(); // re-calls menu function // KB
             } 
             else { 
                 while (x != 'b') { // while x doesnt equal the character b it will loop // KB
@@ -221,18 +311,28 @@ int menu() { // KB
 
         case 2: { // KB
             
-            cout << "\n\t\t      LOGIN\n";
+            cout << "\n\t\t      LOGIN\n\n\n\n";
             cout << "\n";
             cout << "\n";
-
+            cout << "\n"; 
+            cout << "\t     a. DONOR PAGE\n\n";
+            cout << "\t     b. BOOK BLOOD DONATION TIME\n\n";
             setcolor(0x0C);
-            cout << "\t\t     b. BACK\n";
+            cout << "\t\t     c. BACK\n";
             setcolor(0x07);
             cout << "\n";
             cout << "\t\tEnter your option : ";
             cin >> x;
+            if (x == 'a') {
+                cout << "nothing yet";
+            }
             if (x == 'b') {
-                menu();
+                struct Date b;
+                struct Date* ptr = &b;
+                input_data(ptr);
+            }
+            if (x == 'c') {
+                main_screen();
             }
             else { 
                 while (x != 'a' && x != 'b') {
@@ -300,7 +400,7 @@ int menu() { // KB
             }
 
             else if (x =='c') {
-                menu();
+                main_screen();
         
             }
             
@@ -329,7 +429,7 @@ int menu() { // KB
             cout << "\t\tEnter your option : ";  // KB
             cin >> x; // KB
             if (x == 'b') { // KB
-                menu(); // re-calls menu function // KB
+                main_screen(); // re-calls menu function // KB
             } // KB
             else { // KB
                 while (x != 'a' && x != 'b') {
@@ -372,7 +472,7 @@ int menu() { // KB
 
 int main() // KB
 { // KB
-    menu(); // KB
+    main_screen(); // KB
     return 0;
      
 } // KB
