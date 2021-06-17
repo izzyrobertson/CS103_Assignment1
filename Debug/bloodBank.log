@@ -1,8 +1,8 @@
 ﻿  bloodBank.cpp
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(239,17): warning C4129: '|': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(239,17): warning C4129: ' ': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(241,17): warning C4129: '/': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(241,17): warning C4129: ' ': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(241,17): warning C4129: '|': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(243,17): warning C4129: '_': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(249,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(249,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(251,17): warning C4129: '/': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(251,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(251,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(253,17): warning C4129: '_': unrecognized character escape sequence
   bloodBank.vcxproj -> C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\Debug\bloodBank.exe
