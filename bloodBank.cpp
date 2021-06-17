@@ -133,16 +133,14 @@ void secondline(int n) { // decalring int n creating a line to underscore the ti
 
 void donor_screen() {
     int x;
-    cout << "\n\t\tDONOR SCREEN : ";
-    cout << "\t\t     a. CONTACT DETAILS/UPDATE\n";
+    cout << "\n\t\tDONOR SCREEN\n";
+    cout << "\n\n\t\ta. CONTACT DETAILS/UPDATE\n";
     cout << "\n"; 
-    cout << "\t\t     b. BOOK A DONATION\n";
+    cout << "\t\tb. BOOK A DONATION\n";
     cout << "\n";
     cout << "\n";
     cout << "\t\t  Enter your option : ";
     cin >> x;
-
-    
 }
 
 
@@ -334,6 +332,7 @@ int menu() { // KB
 
              if (user_name == d->username && user_password == d->password) {
                  system("CLS");
+                 donor_screen();
              }
              else if (user_name != d->username || user_password != d->password) {
                  while (Login_Attempt < 2) {
