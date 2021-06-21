@@ -135,18 +135,16 @@ void donor_search() {
     char x;
     int y, i;
     string blood_type;
-    string location, name;
+    string location;
     cout << "\n\t\tDonor Search Menu\n";
     cout << "\n\n\t\ta. SEARCH BY BLOOD GROUP\n";
     cout << "\n";
     cout << "\t\tb. SEARCH BY LOCATION\n";
     cout << "\n";
-    cout << "\t\tc. SEARCH BY NAME\n";
-    cout << "\n";
-    cout << "\t\td. BACK\n";
+    cout << "\t\tc. BACK\n";
     cout << "\n";
     cout << "\n";
-    cout << "\t\t  Enter your option : ";
+    cout << "\t\tEnter your option : ";
     cin >> x;
 
     struct Donor u[10]; //DONOR
@@ -197,51 +195,50 @@ void donor_search() {
         ind++;
     };
     
-
+    /*if (x != 'a' && x != 'b' && x != 'c') {
+        cout << "\t\n\n\n      Invalid input try again";
+        cout << "\n";
+        cin >> x;
+    }*/
     if (x == 'a') {
-        cout << "\n\n\tEnter the blood type group : ";
+        cout << "\n\n\t\tEnter the blood type group : ";
         cin >> blood_type;
         for (int i = 0; i < 4; i++) {
             if (blood_type == u[i].blood_group) {
-                cout << u[i].blood_group;
+                cout << "\n First Name : " << u[i].first_name << "\n Last Name : " << u[i].last_name << "\n Blood Group : " << u[i].blood_group << "\n Physical Address : " << u[i].physical_address << endl;
+                cout << "\n\n\t\t Enter 'a' to search again, else to exit to menu : ";
+                cin >> x;
+                if (x == 'a') {
+                    system("CLS");
+                    donor_search();
+                }
             }  
         }
 
     }
     if (x == 'b') {
-        cout << "\n\n\tEnter the location : ";
-        cin >> location;
+        cout << "\n\n\t\tEnter the location : ";
+        cin.ignore();
+        getline(cin,location);
         for (int i = 0; i < 4; i++) {
             if (location == u[i].physical_address) {
-                cout << u[i].first_name << u[i].last_name << u[i].blood_group << u[i].physical_address;
+                cout << "\n First Name : " << u[i].first_name << "\n Last Name : " << u[i].last_name << "\n Blood Group : " << u[i].blood_group << "\n Physical Address : " << u[i].physical_address << endl;
+                cout << "\n\n\t\t Enter 'a' to search again, , else to exit to menu : ";
+                cin >> x;
+                if (x == 'a') {
+                    system("CLS");
+                    donor_search();
+                    while (x != 'a') {
+                        cout << "\n\n\t\tInvalid input, please try again : ";
+                        cin >> x;
+                    }
+                }
             }
         }
     }
-
-    for (int i = 0; i < 5; i++) {
-        if (u[i].blood_group == blood_type) {
-            cout << "\n" << u[i].first_name << "\n" << u[i].last_name << "\n" << u[i].blood_group << "\n" << u[i].physical_address;
-        }
-    }
-  
-
-   /* if (x == 'c') {
-        cout << d->first_name;
-        cout << "\n\n\tEnter the name : ";
-        cin >> name;
-        if (name == d->first_name) {
-            cout << "NAME FOUND";
-            cin >> y;
-        }
-    }*/
-    if (x == 'd') {
+    if (x == 'c') {
         system("CLS");
         return;
-    }
-    else {
-        cout << "\t      Invalid input try again";
-        cout << "\n";
-        cin >> x;
     }
 }
 
@@ -271,8 +268,8 @@ void donor_screen() {
         system("CLS");
         return;
     }
-    else {
-        cout << "\t      Invalid input try again";
+    else if (x != 'a' && x != 'b' && x != 'c') {
+        cout << "\n\n\t      Invalid input try again";
         cout << "\n";
         cin >> x;
     }
@@ -305,8 +302,8 @@ void recipient_screen() {
         system("CLS");
         return;
     }
-    else {
-        cout << "\t      Invalid input try again";
+    else if ( x!= 'a' && x!= 'b' && x!= 'c') {
+        cout << "\n\n\t      Invalid input try again";
         cout << "\n";
         cin >> x;
     }
