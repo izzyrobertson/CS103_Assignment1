@@ -541,11 +541,189 @@ void secondline(int n) { // decalring int n creating a line to underscore the ti
     } // KB
 } // KB
 
+//<<<<<<< HEAD
+void donor_search() {
+    char x;
+    int y, i;
+    string blood_type;
+    string location;
+    cout << "\n\t\tDonor Search Menu\n";
+    cout << "\n\n\t\ta. SEARCH BY BLOOD GROUP\n";
+    cout << "\n";
+    cout << "\t\tb. SEARCH BY LOCATION\n";
+    cout << "\n";
+    cout << "\t\tc. BACK\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\t\tEnter your option : ";
+    cin >> x;
+
+    struct Donor u[10]; //DONOR
+    //struct Donor don[10];
+   
+    //struct Donor* ptr = &u; //DONOR
+    Donor d; //DONOR
+
+    ifstream myfile;
+    myfile.open("donor.csv", ios::in); // IR
+    //myfile.open("recipient.csv", ios::in);
+
+    string line;
+    int ind=0;
+
+    while (getline(myfile, line)) { //DONOR
+        //cout << line;
+        istringstream linestream(line);
+        string item;
+        getline(linestream, item, ',');
+        d.first_name = item;
+        getline(linestream, item, ',');
+        d.last_name = item;
+        getline(linestream, item, ',');
+        d.dob = item;
+        getline(linestream, item, ',');
+        d.nationality = item;
+        getline(linestream, item, ',');
+        d.ethnicity = item;
+        getline(linestream, item, ',');
+        d.gender = item;
+        getline(linestream, item, ',');
+        d.underlying_conditions = item;
+        getline(linestream, item, ',');
+        d.blood_group = item;
+        getline(linestream, item, ',');
+        stringstream ss(item);
+        ss >> d.contact_no;
+        getline(linestream, item, ',');
+        d.email = item;
+        getline(linestream, item, ',');
+        d.physical_address = item;
+        getline(linestream, item, ',');
+        d.username = item;
+        getline(linestream, item, ',');
+        d.password = item;
+        u[ind]= d;
+        ind++;
+    };
+    
+    /*if (x != 'a' && x != 'b' && x != 'c') {
+        cout << "\t\n\n\n      Invalid input try again";
+        cout << "\n";
+        cin >> x;
+    }*/
+    if (x == 'a') {
+        cout << "\n\n\t\tEnter the blood type group : ";
+        cin >> blood_type;
+        for (int i = 0; i < 4; i++) {
+            if (blood_type == u[i].blood_group) {
+                cout << "\n First Name : " << u[i].first_name << "\n Last Name : " << u[i].last_name << "\n Blood Group : " << u[i].blood_group << "\n Physical Address : " << u[i].physical_address << endl;
+                cout << "\n\n\t\t Enter 'a' to search again, else to exit to menu : ";
+                cin >> x;
+                if (x == 'a') {
+                    system("CLS");
+                    donor_search();
+                }
+            }  
+        }
+
+    }
+    if (x == 'b') {
+        cout << "\n\n\t\tEnter the location : ";
+        cin.ignore();
+        getline(cin,location);
+        for (int i = 0; i < 4; i++) {
+            if (location == u[i].physical_address) {
+                cout << "\n First Name : " << u[i].first_name << "\n Last Name : " << u[i].last_name << "\n Blood Group : " << u[i].blood_group << "\n Physical Address : " << u[i].physical_address << endl;
+                cout << "\n\n\t\t Enter 'a' to search again, , else to exit to menu : ";
+                cin >> x;
+                if (x == 'a') {
+                    system("CLS");
+                    donor_search();
+                    while (x != 'a') {
+                        cout << "\n\n\t\tInvalid input, please try again : ";
+                        cin >> x;
+                    }
+                }
+            }
+        }
+    }
+    if (x == 'c') {
+        system("CLS");
+        return;
+    }
+}
+
+void donor_screen() {
+    char x;
+    cout << "\n\t\tDONOR SCREEN\n";
+    cout << "\n\n\t\ta. CONTACT DETAILS/UPDATE\n";
+    cout << "\n"; 
+    cout << "\t\tb. BOOK A DONATION\n";
+    cout << "\n";
+    cout << "\t\tc. BACK\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\t\t  Enter your option : ";
+    cin >> x;
+    if (x == 'a') {
+        system("CLS");
+        cout << "contact detail";
+        cin >> x;
+    }
+    if (x == 'b') {
+        system("CLS");
+        cout << "book donation";
+        cin >> x;
+    }
+    if (x == 'c') {
+        system("CLS");
+        return;
+    }
+    else if (x != 'a' && x != 'b' && x != 'c') {
+        cout << "\n\n\t      Invalid input try again";
+        cout << "\n";
+        cin >> x;
+    }
+}
+//=======
 
 
 
+//>>>>>>> 1faf7e833d4703e82e36acd0d536a39aaa39c21c
 
 
+
+void recipient_screen() {
+    char x;
+    cout << "\n\t\tRECIPIENT SCREEN\n";
+    cout << "\n\n\t\ta. CONTACT DETAILS/UPDATE\n";
+    cout << "\n"; 
+    cout << "\t\tb. DONOR SEARCH MENU\n";
+    cout << "\n";
+    cout << "\t\tc. back\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\t\t  Enter your option : ";
+    cin >> x;
+    if (x == 'a'){
+        system("CLS");
+        cout << "contact detail";
+        cin >> x;
+    }
+    if (x == 'b') {
+        system("CLS");
+        donor_search();
+    }
+    if (x == 'c') {
+        system("CLS");
+        return;
+    }
+    else if ( x!= 'a' && x!= 'b' && x!= 'c') {
+        cout << "\n\n\t      Invalid input try again";
+        cout << "\n";
+        cin >> x;
+    }
+}
 
 int menu() { // KB
     int option; // KB
@@ -608,8 +786,212 @@ int menu() { // KB
 
 
 
+<<<<<<< HEAD
+        case 2: { // KB
+
+            cout << "\n\t\t      LOGIN\n\n"; // KB
+            cout << "\t\ta. DONOR LOGIN\n\n";
+            cout << "\t\tb. RECIPIENT LOGIN\n\n";// IR
+            setcolor(0x0C);
+            cout << "\t\tb. BACK\n\n"; // KB
+            setcolor(0x07);
+            cout << "\t\tEnter your option : ";
+            cin >> x; // KB
+
+            struct Donor u; //DONOR
+            //struct Donor* ptr = &u; //DONOR
+            Donor *d=&u; //DONOR
+
+            struct Recipient s; //RECIPIENT
+            //struct Recipient* ptr = &s; //RECIPIENT
+            Recipient *r=&s; //RECIPIENT
+
+            int i;
+            int Login_Attempt = 0;
+
+            if (x == 'a') { // IR
+                ifstream myfile;
+                myfile.open("donor.csv", ios::in); // IR
+                //myfile.open("recipient.csv", ios::in);
+               
+                string line;
+
+                while (getline(myfile, line)) { //DONOR
+                    //cout << line;
+                    istringstream linestream(line);
+                    string item;
+                    getline(linestream, item, ',');
+                    d->first_name = item;
+                    getline(linestream, item, ',');
+                    d->last_name = item;
+                    getline(linestream, item, ',');
+                    d->dob = item;
+                    getline(linestream, item, ',');
+                    d->nationality = item;
+                    getline(linestream, item, ',');
+                    d->ethnicity = item;
+                    getline(linestream, item, ',');
+                    d->gender = item;
+                    getline(linestream, item, ',');
+                    d->underlying_conditions = item;
+                    getline(linestream, item, ',');
+                    d->blood_group = item;
+                    getline(linestream, item, ',');
+                    stringstream ss(item);
+                    ss >> d->contact_no;
+                    getline(linestream, item, ',');
+                    d->email = item;
+                    getline(linestream, item, ',');
+                    d->physical_address = item;
+                    getline(linestream, item, ',');
+                    d->username = item;
+                    getline(linestream, item, ',');
+                    d->password = item;
+                };
+
+                /*while (getline(myfile, vine)) { //RECIPIENT
+                    //cout << line;
+                    istringstream linestream(vine);
+                    string box;
+                    getline(linestream, box, ',');
+                    r->hospital_name= box;
+                    getline(linestream, box, ',');
+                    r->blood_bank_name = box;
+                    getline(linestream, box, ',');
+                    r->patient_name = box;
+                    getline(linestream, box, ',');
+                    stringstream ss(box);
+                    ss >> r->contact_no;
+                    getline(linestream, box, ',');
+                    r->email = box;
+                    getline(linestream, box, ',');
+                    r->physical_address = box;
+                    getline(linestream, box, ',');
+                    r->username = box;
+                    getline(linestream, box, ',');
+                    r->password = box;
+                }; */
+             
+                    cout << d->username << endl;
+                    cout << d->password << endl;
+
+                    //cout << r->username << endl;
+                    //cout << r->password << endl;
+              
+             cout << "\n\t\tEnter your Username : ";
+             cin >> user_name;
+             cout << "\n\t\tEnter your Password : ";
+             cin >> user_password;
+
+             if (user_name == d->username && user_password == d->password) {
+                 system("CLS");
+                 donor_screen();
+             }
+             else if (user_name != d->username || user_password != d->password) {
+                 while (Login_Attempt < 2) {
+                     Login_Attempt++;
+                     cout << "\n\t\tSorry, you have entered the incorrect Username or Password, Please try again!\n";
+                     cout << "\n\t\tUsername : ";
+                     cin >> user_name;
+                     cout << "\n\t\tPassword : ";
+                     cin >> user_password;
+                     if (user_name == d->username && user_password == d->password) {
+                         system("CLS");
+                         donor_screen();
+                     }
+                 }
+                 while (Login_Attempt >= 2) {
+                     cout << "\n\t\tSorry, you have entered the incorrect password 3 times";
+                     cout << "\n\t\t======================================================\n";
+                     cout << "\n\t\tPlease press b to return to the menu : ";
+                     cin >> x;
+                     if (x == 'b') {
+                         menu();
+                         while (x != 'b') {
+                             cout << "\n\t\tInvalid input, Please try again!";
+                             cout << "\n\t\tPlease press b to return to the menu : ";
+                             cin >> x;
+                         }
+                     }
+                 }
+             } 
+             //myfile.close();
+            } // case close IR
+            //break;
+            if (x == 'b') {
+                ifstream myfile;
+                myfile.open("recipient.csv", ios::in);
+
+                string vine;
+
+                while (getline(myfile, vine)) { //RECIPIENT
+                    //cout << line;
+                    istringstream linestream(vine);
+                    string box;
+                    getline(linestream, box, ',');
+                    r->hospital_name = box;
+                    getline(linestream, box, ',');
+                    r->blood_bank_name = box;
+                    getline(linestream, box, ',');
+                    r->patient_name = box;
+                    getline(linestream, box, ',');
+                    stringstream ss(box);
+                    ss >> r->contact_no;
+                    getline(linestream, box, ',');
+                    r->email = box;
+                    getline(linestream, box, ',');
+                    r->physical_address = box;
+                    getline(linestream, box, ',');
+                    r->username = box;
+                    getline(linestream, box, ',');
+                    r->password = box;
+                }; 
+
+                cout << r->username << endl;
+                cout << r->password << endl;
+
+                cout << "\n\t\tEnter your Username : ";
+                cin >> user_name;
+                cout << "\n\t\tEnter your Password : ";
+                cin >> user_password;
+
+                if (user_name == r->username && user_password == r->password) {
+                    system("CLS");
+                    recipient_screen();
+                }
+                else if (user_name != r->username || user_password != r->password) {
+                    while (Login_Attempt < 2) {
+                        Login_Attempt++;
+                        cout << "\n\t\tSorry, you have entered the incorrect Username or Password, Please try again!\n";
+                        cout << "\n\t\tUsername : ";
+                        cin >> user_name;
+                        cout << "\n\t\tPassword : ";
+                        cin >> user_password;
+                        if (user_name == r->username && user_password == r->password) {
+                            system("CLS");
+                            donor_screen();
+                        }
+                    }
+                    while (Login_Attempt >= 2) {
+                        cout << "\n\t\tSorry, you have entered the incorrect password 3 times";
+                        cout << "\n\t\t======================================================\n";
+                        cout << "\n\t\tPlease press b to return to the menu : ";
+                        cin >> x;
+                        if (x == 'b') {
+                            menu();
+                            while (x != 'b') {
+                                cout << "\n\t\tInvalid input, Please try again!";
+                                cout << "\n\t\tPlease press b to return to the menu : ";
+                                cin >> x;
+                            }
+                        }
+                    }
+                }
+            }
+=======
         case 2: {
             login_function();
+>>>>>>> 1faf7e833d4703e82e36acd0d536a39aaa39c21c
             break;
         }
            
