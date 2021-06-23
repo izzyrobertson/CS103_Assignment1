@@ -215,32 +215,6 @@ void booking(string first_name, string last_name, string dob, string underlying_
 
 
 
-//struct Date { // KB
-//    string monday, tuesday, wednesday, thursday, friday; // KB
-//};
-//
-//
-//
-//struct Donor { // KB
-//    string first_name; // KB
-//    string last_name; // KB
-//    string dob; // KB
-//    string nationality; // KB
-//    string ethnicity; // KB
-//    string gender; // KB
-//    string underlying_conditions; // KB
-//    string blood_group; // KB
-//    int contact_no; // KB
-//    string email; // KB
-//    string physical_address; // KB
-//    string username; // KB
-//    string password;  // KB
-//    // add id
-//    //constructor
-//   /*Donor(string f = "", ) {
-//        first_name = f;
-//    }*/
-//}; // KB
 
 struct Donor* input_data(struct Donor* u) { // KB
     ofstream myfile("donor.csv", ios::app); //KB
@@ -284,17 +258,6 @@ struct Donor* input_data(struct Donor* u) { // KB
 
 
 
-//struct Recipient { // KB
-//    string hospital_name; // KB
-//    string blood_bank_name; // KB
-//    string patient_name; // KB  
-//    int contact_no; // KB
-//    string email; // KB
-//    string physical_address; // KB
-//    string username; // KB
-//    string password;  // KB
-//
-//}; // KB
 
 struct Recipient* input_data(struct Recipient* s) { // KB
     ofstream myfile("recipient.csv", ios::app); //KB
@@ -638,11 +601,180 @@ void secondline(int n) { // decalring int n creating a line to underscore the ti
     } // KB
 } // KB
 
+//<<<<<<< HEAD
+void donor_search() {
+    char x;
+    int y, i;
+    string blood_type;
+    string location;
+    cout << "\n\t\tDonor Search Menu\n";
+    cout << "\n\n\t\ta. SEARCH BY BLOOD GROUP\n";
+    cout << "\n";
+    cout << "\t\tb. SEARCH BY LOCATION\n";
+    cout << "\n";
+    cout << "\t\tc. BACK\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\t\tEnter your option : ";
+    cin >> x;
+
+    struct Donor u[10]; //DONOR
+    //struct Donor don[10];
+   
+    //struct Donor* ptr = &u; //DONOR
+    Donor d; //DONOR
+
+    ifstream myfile;
+    myfile.open("donor.csv", ios::in); // IR
+    //myfile.open("recipient.csv", ios::in);
+
+    string line;
+    int ind=0;
+
+    while (getline(myfile, line)) { //DONOR
+        //cout << line;
+        istringstream linestream(line);
+        string item;
+        getline(linestream, item, ',');
+        d.first_name = item;
+        getline(linestream, item, ',');
+        d.last_name = item;
+        getline(linestream, item, ',');
+        d.dob = item;
+        getline(linestream, item, ',');
+        d.nationality = item;
+        getline(linestream, item, ',');
+        d.ethnicity = item;
+        getline(linestream, item, ',');
+        d.gender = item;
+        getline(linestream, item, ',');
+        d.underlying_conditions = item;
+        getline(linestream, item, ',');
+        d.blood_group = item;
+        getline(linestream, item, ',');
+        stringstream ss(item);
+        ss >> d.contact_no;
+        getline(linestream, item, ',');
+        d.email = item;
+        getline(linestream, item, ',');
+        d.physical_address = item;
+        getline(linestream, item, ',');
+        d.username = item;
+        getline(linestream, item, ',');
+        d.password = item;
+        u[ind]= d;
+        ind++;
+    };
+    
+
+    if (x == 'a') {
+        cout << "\n\n\t\tEnter the blood type group : ";
+        cin >> blood_type;
+        for (int i = 0; i < 4; i++) {
+            if (blood_type == u[i].blood_group) {
+                cout << "\n First Name : " << u[i].first_name << "\n Last Name : " << u[i].last_name << "\n Blood Group : " << u[i].blood_group << "\n Physical Address : " << u[i].physical_address << endl;
+                cout << "\n\n\t\t Enter 'a' to search again, else to exit to menu : ";
+                cin >> x;
+                if (x == 'a') {
+                    system("CLS");
+                    donor_search();
+                }
+            }  
+        }
+
+    }
+    if (x == 'b') {
+        cout << "\n\n\t\tEnter the location : ";
+        cin.ignore();
+        getline(cin,location);
+        for (int i = 0; i < 4; i++) {
+            if (location == u[i].physical_address) {
+                cout << "\n First Name : " << u[i].first_name << "\n Last Name : " << u[i].last_name << "\n Blood Group : " << u[i].blood_group << "\n Physical Address : " << u[i].physical_address << endl;
+                cout << "\n\n\t\t Enter 'a' to search again, , else to exit to menu : ";
+                cin >> x;
+                if (x == 'a') {
+                    system("CLS");
+                    donor_search();
+                    while (x != 'a') {
+                        cout << "\n\n\t\tInvalid input, please try again : ";
+                        cin >> x;
+                    }
+                }
+            }
+        }
+    }
+    if (x == 'c') {
+        system("CLS");
+        return;
+    }
+}
+
+void donor_screen() {
+    char x;
+    cout << "\n\t\tDONOR SCREEN\n";
+    cout << "\n\n\t\ta. CONTACT DETAILS/UPDATE\n";
+    cout << "\n"; 
+    cout << "\t\tb. BOOK A DONATION\n";
+    cout << "\n";
+    cout << "\t\tc. BACK\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\t\t  Enter your option : ";
+    cin >> x;
+    if (x == 'a') {
+        system("CLS");
+        cout << "contact detail";
+        cin >> x;
+    }
+    if (x == 'b') {
+        system("CLS");
+        cout << "book donation";
+        cin >> x;
+    }
+    if (x == 'c') {
+        system("CLS");
+        return;
+    }
+    else if (x != 'a' && x != 'b' && x != 'c') {
+        cout << "\n\n\t      Invalid input try again";
+        cout << "\n";
+        cin >> x;
+    }
+}
 
 
 
-
-
+void recipient_screen() {
+    char x;
+    cout << "\n\t\tRECIPIENT SCREEN\n";
+    cout << "\n\n\t\ta. CONTACT DETAILS/UPDATE\n";
+    cout << "\n"; 
+    cout << "\t\tb. DONOR SEARCH MENU\n";
+    cout << "\n";
+    cout << "\t\tc. back\n";
+    cout << "\n";
+    cout << "\n";
+    cout << "\t\t  Enter your option : ";
+    cin >> x;
+    if (x == 'a'){
+        system("CLS");
+        cout << "contact detail";
+        cin >> x;
+    }
+    if (x == 'b') {
+        system("CLS");
+        donor_search();
+    }
+    if (x == 'c') {
+        system("CLS");
+        return;
+    }
+    else if ( x!= 'a' && x!= 'b' && x!= 'c') {
+        cout << "\n\n\t      Invalid input try again";
+        cout << "\n";
+        cin >> x;
+    }
+}
 
 int menu() { // KB
     int option; // KB
@@ -703,7 +835,7 @@ int menu() { // KB
         case 1: { // KB
             about_function();
             break;
-            } // KB
+        } // KB
 
 
 
@@ -711,9 +843,9 @@ int menu() { // KB
             login_function();
             break;
         }
-           
-        
-       
+
+
+
         case 3: { // KB
             register_function();
             break;
@@ -728,7 +860,7 @@ int menu() { // KB
             admin_login();
             break;
 
-            
+
         } // KB
 
 
@@ -745,11 +877,11 @@ int menu() { // KB
 
 
 
-  
+
         } // KB
-       
+
+        } // KB
     } // KB
-} // KB
 
 
 
