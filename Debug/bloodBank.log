@@ -1,9 +1,9 @@
 ﻿  bloodBank.cpp
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(566,17): warning C4129: '|': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(566,17): warning C4129: ' ': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(568,17): warning C4129: '/': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(568,17): warning C4129: ' ': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(568,17): warning C4129: '|': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(570,17): warning C4129: '_': unrecognized character escape sequence
-C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(552,10): warning C4101: 'x': unreferenced local variable
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(663,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(663,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(665,17): warning C4129: '/': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(665,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(665,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(667,17): warning C4129: '_': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(649,10): warning C4101: 'x': unreferenced local variable
   bloodBank.vcxproj -> C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\Debug\bloodBank.exe
