@@ -24,7 +24,7 @@ struct Donor { // KB
     string last_name; // KB
     string dob; // KB
     string nationality; // KB
-    string ethnicity; // KB
+    string ethnicity; // KBd
     string gender; // KB
     string underlying_conditions; // KB
     string blood_group; // KB
@@ -40,48 +40,6 @@ struct Donor { // KB
     }*/
 }; // KB
 
-struct Donor* input_data(struct Donor* u) { // KB
-    ofstream myfile("donor.csv", ios::app); //KB
-    //for (int i = 0; i < n; i++) {  // KB
-    cin.ignore(); // KB
-    cout << "\n   Please enter your first name : "; // KB
-    getline(cin, (u)->first_name); // KB
-    /*cout << (u)->first_name;*/
-    cout << "\n   Please enter your last name : "; // KB
-    getline(cin, (u)->last_name);  // KB
-    cout << "\n   Please enter your date of birth (xx/xx/xx) : "; // KB
-    getline(cin, (u)->dob); // KB
-    cout << "\n   Please enter your nationality : "; // KB
-    getline(cin, (u)->nationality); // KB
-    cout << "\n   Please enter your ethnicity : "; // KB
-    getline(cin, (u)->ethnicity); // KB
-    cout << "\n   Please enter your biological gender (male / female) : "; // KB
-    getline(cin, (u)->gender); // KB
-    cout << "\n   Please enter (if any) underlying conditions : "; // KB
-    getline(cin, (u)->underlying_conditions); // KB
-    cout << "\n   Please enter your blood group : "; // KB
-    getline(cin, (u)->blood_group); // KB
-    cout << "\n   Please enter your contact number : "; // KB
-    cin >> (u)->contact_no; // KB
-    cin.ignore(); // KB
-    cout << "\n   Please enter your email : "; // KB
-    getline(cin, (u)->email); // KB
-    cout << "\n   Please enter your physical address : "; // KB
-    getline(cin, (u)->physical_address); // KB
-    cout << "\n   Please enter your username : "; // KB
-    getline(cin, (u)->username); // KB
-    cout << "\n   Please enter your password : "; // KB
-    getline(cin, (u)->password); // KB
-    myfile << (u)->first_name << ',' << (u)->last_name << ',' << (u)->dob << ',' << (u)->nationality << ',' << (u)->ethnicity << ',' << (u)->gender << ',' << (u)->underlying_conditions << ',' << (u)->blood_group << ',' << (u)->contact_no << ',' << (u)->email << ',' << (u)->physical_address << ',' << (u)->username << ',' << (u)->password << ',' << endl;
-    myfile.close();
-
-
-    return(u); // KB
-
-} // KB
-
-
-
 struct Recipient { // KB
     string hospital_name; // KB
     string blood_bank_name; // KB
@@ -94,39 +52,70 @@ struct Recipient { // KB
 
 }; // KB
 
-struct Recipient* input_data(struct Recipient* s) { // KB
-    ofstream myfile("recipient.csv", ios::app); //KB
-    //for (int i = 0; i < n; i++) {  // KB
-    cin.ignore(); // KB
-    cout << "\n   Please enter the hospital name : "; // KB
-    getline(cin, (s)->hospital_name); // KB
-    cout << "\n   Please enter the blood bank name\n   (put n/a if you do not have one) : "; // KB
-    getline(cin, (s)->blood_bank_name);  // KB
-    cout << "\n   Please enter your patients name\n   (put n/a if you do not have one) : "; // KB
-    getline(cin, (s)->patient_name); // KB
-    cout << "\n   Please enter your contact number : ";
-    cin >> (s)->contact_no; // KB
-    cin.ignore(); // KB
-    cout << "\n   Please enter your email : "; // KB
-    getline(cin, (s)->email); // KB
-    cout << "\n   Please enter your physical address : "; // KB
-    getline(cin, (s)->physical_address); // KB
-    cout << "\n   Please enter your username : "; // KB
-    getline(cin, (s)->username); // KB
-    cout << "\n   Please enter your password : "; // KB
-    getline(cin, (s)->password); // KB
-    myfile << (s)->hospital_name << ',' << (s)->blood_bank_name << ',' << (s)->patient_name << ',' << (s)->contact_no << ',' << (s)->email << ',' << (s)->physical_address << ',' << (s)->username << ',' << (s)->password << ',' << endl;
-    myfile.close();
 
-
-    return(s); // KB
-
-} // KB
 
 void setcolor(unsigned char color) // KB
 { // KB
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); // KB
 } // KB
+
+
+//
+void update_contact_details(struct Donor* d) {
+    cout << d->email;
+    system("PAUSE");
+
+        system("CLS");
+        cout << "\n\n\t     UPDATE CONTACT DETAILS   \n" << "\n\t   ------------------------------\n\n";
+        cout << "\n\n\t    Your details are as follows : \n";
+        setcolor(0x0A);
+       /* cout << "\n\t\t    " << first_name << " " << last_name << "\n\t\t    " << contact_no << "\n\t\t    " << email << "\n\t\t    " << physical_address << endl;*/
+        setcolor(0x07);
+        cout << "\n\n\t    1. Update contact details\n";
+        setcolor(0x0C);
+        cout << "\n\n\t            2. BACK\n";
+        setcolor(0x07);
+        int choice;// KB
+        cin >> choice;
+        switch (choice)// KB
+        {
+        case 1: {
+                 ofstream myfile;
+                 fstream mymyfile;
+                 //myfile.open("donor.csv", ios::in|ios::out);// KB // testing
+                 myfile.open("donor.csv", ios::in);// KB
+                 mymyfile.open("temp.csv", ios::out);//write
+                 string line;
+            /*     while (getline(cin, line)) {
+                     if ()*/
+                     string update_email, update_address;
+                     int update_no;
+                     cout << "\n   Please update your email : "; // KB
+                     cin >> update_email;
+                     d->email = update_email;
+                     cout << "\n   Please update your contact number : "; // KB
+                     cin >> update_no;
+                     d->contact_no = update_no;
+                     cout << "\n   Please update your address : "; // KB
+                     cin >> update_address;
+                     d->physical_address = update_address;
+                 //}
+                 //if statement to confirm
+                 myfile << (d)->first_name << ',' << (d)->last_name << ',' << (d)->dob << ',' << (d)->nationality << ',' << (d)->ethnicity << ',' << (d)->gender << ',' << (d)->underlying_conditions << ',' << (d)->blood_group << ',' << (d)->contact_no << ',' << (d)->email << ',' << (d)->physical_address << ',' << (d)->username << ',' << (d)->password << ',' << endl;
+                 system("PAUSE");
+                 myfile.close();
+            break;
+        }
+        case 2: {
+            break;
+        }
+        }
+        
+        
+}
+
+
+
 
 
 void booking(string first_name, string last_name, string dob, string underlying_conditions){// KB
@@ -146,7 +135,7 @@ void booking(string first_name, string last_name, string dob, string underlying_
     cout << "\n\t   5. Friday 9:00am - 4:00pm \n";
     cout << "\n";
     setcolor(0x0C);
-    cout << "\n\t           6. back\n";
+    cout << "\n\t           6. BACK\n";
     setcolor(0x07);
     int choice;// KB
 
@@ -223,6 +212,82 @@ void booking(string first_name, string last_name, string dob, string underlying_
     }
     return; 
 }
+
+
+
+
+
+struct Donor* input_data(struct Donor* u) { // KB
+    ofstream myfile("donor.csv", ios::app); //KB
+    //for (int i = 0; i < n; i++) {  // KB
+    cin.ignore(); // KB
+    cout << "\n   Please enter your first name : "; // KB
+    getline(cin, (u)->first_name); // KB
+    /*cout << (u)->first_name;*/
+    cout << "\n   Please enter your last name : "; // KB
+    getline(cin, (u)->last_name);  // KB
+    cout << "\n   Please enter your date of birth (xx/xx/xx) : "; // KB
+    getline(cin, (u)->dob); // KB
+    cout << "\n   Please enter your nationality : "; // KB
+    getline(cin, (u)->nationality); // KB
+    cout << "\n   Please enter your ethnicity : "; // KB
+    getline(cin, (u)->ethnicity); // KB
+    cout << "\n   Please enter your biological gender (male / female) : "; // KB
+    getline(cin, (u)->gender); // KB
+    cout << "\n   Please enter (if any) underlying conditions : "; // KB
+    getline(cin, (u)->underlying_conditions); // KB
+    cout << "\n   Please enter your blood group : "; // KB
+    getline(cin, (u)->blood_group); // KB
+    cout << "\n   Please enter your contact number : "; // KB
+    cin >> (u)->contact_no; // KB
+    cin.ignore(); // KB
+    cout << "\n   Please enter your email : "; // KB
+    getline(cin, (u)->email); // KB
+    cout << "\n   Please enter your physical address : "; // KB
+    getline(cin, (u)->physical_address); // KB
+    cout << "\n   Please enter your username : "; // KB
+    getline(cin, (u)->username); // KB
+    cout << "\n   Please enter your password : "; // KB
+    getline(cin, (u)->password); // KB
+    myfile << (u)->first_name << ',' << (u)->last_name << ',' << (u)->dob << ',' << (u)->nationality << ',' << (u)->ethnicity << ',' << (u)->gender << ',' << (u)->underlying_conditions << ',' << (u)->blood_group << ',' << (u)->contact_no << ',' << (u)->email << ',' << (u)->physical_address << ',' << (u)->username << ',' << (u)->password << ',' << endl;
+    myfile.close();
+
+
+    return(u); // KB
+
+} // KB
+
+
+
+struct Recipient* input_data(struct Recipient* s) { // KB
+    ofstream myfile("recipient.csv", ios::app); //KB
+    //for (int i = 0; i < n; i++) {  // KB
+    cin.ignore(); // KB
+    cout << "\n   Please enter the hospital name : "; // KB
+    getline(cin, (s)->hospital_name); // KB
+    cout << "\n   Please enter the blood bank name\n   (put n/a if you do not have one) : "; // KB
+    getline(cin, (s)->blood_bank_name);  // KB
+    cout << "\n   Please enter your patients name\n   (put n/a if you do not have one) : "; // KB
+    getline(cin, (s)->patient_name); // KB
+    cout << "\n   Please enter your contact number : ";
+    cin >> (s)->contact_no; // KB
+    cin.ignore(); // KB
+    cout << "\n   Please enter your email : "; // KB
+    getline(cin, (s)->email); // KB
+    cout << "\n   Please enter your physical address : "; // KB
+    getline(cin, (s)->physical_address); // KB
+    cout << "\n   Please enter your username : "; // KB
+    getline(cin, (s)->username); // KB
+    cout << "\n   Please enter your password : "; // KB
+    getline(cin, (s)->password); // KB
+    myfile << (s)->hospital_name << ',' << (s)->blood_bank_name << ',' << (s)->patient_name << ',' << (s)->contact_no << ',' << (s)->email << ',' << (s)->physical_address << ',' << (s)->username << ',' << (s)->password << ',' << endl;
+    myfile.close();
+
+
+    return(s); // KB
+
+} // KB
+
 
 
 void about_function() {// KB
@@ -333,6 +398,8 @@ void register_function() {// KB
 
 }
 
+void admin_login(){
+}
 
 
 void donor_screen(struct Donor* d) {// KB
@@ -345,14 +412,15 @@ void donor_screen(struct Donor* d) {// KB
     cout << "\t      a. UPDATE CONTACT DETAILS\n";
     cout << "\t      b. BOOK A BLOOD DONATION\n\n";
     setcolor(0x0C);
-    cout << "\t\t     c. back\n";
+    cout << "\t\t     c. BACK\n";
     setcolor(0x07);
     cout << "\n";
     cout << "\t\tEnter your option : ";
     cin >> x;// KB
     if (x == 'a') {// KB
-
-        /*update_contact_details();*/
+        cout << d->first_name;
+        update_contact_details(d);
+        system("PAUSE");
 
     }
     if (x == 'b') {// KB
@@ -373,16 +441,6 @@ void donor_screen(struct Donor* d) {// KB
     } // KB
 
 }
-
-
-
-
-void update_contact_details() {
-
-
-
-}
-
 
 void line(int n) { // decalring int n creating a line to underscore the title. // KB
     for (int i = 0; i < n; i++) { //i <66 // KB
@@ -461,11 +519,7 @@ void donor_search() {
         ind++;
     };
     
-    /*if (x != 'a' && x != 'b' && x != 'c') {
-        cout << "\t\n\n\n      Invalid input try again";
-        cout << "\n";
-        cin >> x;
-    }*/
+
     if (x == 'a') {
         cout << "\n\n\t\tEnter the blood type group : ";
         cin >> blood_type;
@@ -802,7 +856,9 @@ int menu() { // KB
         cout << "\n"; // KB
         cout << "\t\t     4. ADMIN LOGIN \n";
         cout << "\n"; // KB
+        setcolor(0x0C);
         cout << "\t\t     5. EXIT \n";
+        setcolor(0x07);
         cout << "\n";
         cout << "\n";
         cout << "\t\t  Enter your option : ";
@@ -822,7 +878,6 @@ int menu() { // KB
         } // KB
         case 2: {
                       login_function();
-                    /*  >>>>>> > 1faf7e833d4703e82e36acd0d536a39aaa39c21c*/
                           break;
                   }
 
@@ -839,8 +894,7 @@ int menu() { // KB
 
 
         case 4: { // KB
-            cout << "\n\nnot working yet\n";
-            system("PAUSE");
+            admin_login();
             break;
 
 
@@ -848,15 +902,11 @@ int menu() { // KB
 
 
         case 5: { // KB
-            cout << "\n"; // KB
-            cout << "\n"; // KB
+            cout << "\n\n"; // KB
             setcolor(0x0C); // KB
             cout << "\n\t\t   GOODBYE"; // KB
             setcolor(0x07); // KB
-            cout << "\n"; // KB
-            cout << "\n"; // KB
-            cout << "\n"; // KB
-            cout << "\n"; // KB
+            cout << "\n\n\n\n"; // KB
             return 0; // KB
         } // KB //case5
 
