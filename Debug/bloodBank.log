@@ -1,0 +1,12 @@
+﻿  bloodBank.cpp
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(607,9): warning C4101: 'y': unreferenced local variable
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(607,12): warning C4101: 'i': unreferenced local variable
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(795,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(795,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(797,17): warning C4129: '/': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(797,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(797,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(799,17): warning C4129: '_': unrecognized character escape sequence
+C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\bloodBank.cpp(781,10): warning C4101: 'x': unreferenced local variable
+  LINK : C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\Debug\bloodBank.exe not found or not built by the last incremental link; performing full link
+  bloodBank.vcxproj -> C:\Users\270116003\OneDrive - UP Education\BloodBank\CS103_Assignment1\Debug\bloodBank.exe
