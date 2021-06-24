@@ -286,9 +286,6 @@ void booking(string first_name, string last_name, string dob, string underlying_
 
 
 
-
-
-
 void admin_login(){
 }
 
