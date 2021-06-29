@@ -1,1 +1,14 @@
-﻿  bloodBank.vcxproj -> C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\Debug\bloodBank.exe
+﻿  bloodBank.cpp
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(365,9): warning C4101: 'i': unreferenced local variable
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(433,9): warning C4101: 'i': unreferenced local variable
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(689,9): warning C4101: 'i': unreferenced local variable
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(758,9): warning C4101: 'y': unreferenced local variable
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(758,12): warning C4101: 'i': unreferenced local variable
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(1365,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(1365,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(1367,17): warning C4129: '/': unrecognized character escape sequence
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(1367,17): warning C4129: ' ': unrecognized character escape sequence
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(1367,17): warning C4129: '|': unrecognized character escape sequence
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(1369,17): warning C4129: '_': unrecognized character escape sequence
+C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\bloodBank.cpp(1351,10): warning C4101: 'x': unreferenced local variable
+  bloodBank.vcxproj -> C:\Users\izzyr\OneDrive\CS103 Copy\CS103_Assignment1\CS103_Assignment1\Debug\bloodBank.exe
